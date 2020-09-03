@@ -40,6 +40,7 @@ MaxEmptyLinesToKeep: 2
 
 # Spaces
 Cpp11BracedListStyle: false
+SpacesInContainerLiterals: false
 
 # Columns
 ColumnLimit: 100

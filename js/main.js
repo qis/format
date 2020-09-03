@@ -1,15 +1,15 @@
-var array = [ 1, 2 ];
+var array = [1, 2];
 
 var array_expanded = [
   1,
   2,
 ];
 
-var object = { one : 1, two : 2 };
+var object = { one: 1, two: 2 };
 
 var object_expanded = {
-  one : 1,
-  two : 2,
+  one: 1,
+  two: 2,
 };
 
 function test1(a)
@@ -78,14 +78,14 @@ function main()
 {
   try
   {
-    test({ one : 1, two : 2 });
+    test({ one: 1, two: 2 });
 
     test({
-      one : 1,
-      two : 2,
+      one: 1,
+      two: 2,
     });
 
-    test([ 1, 2 ]);
+    test([1, 2]);
 
     test([
       1,
