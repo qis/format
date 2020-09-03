@@ -1,6 +1,7 @@
 #include "main.hpp"
 
-// == 120 =============================================================================================================
+// == 100 ====================================================================================== //
+// == 120 ========================================================================================================== //
 
 namespace test {
 namespace detail {
@@ -44,36 +45,23 @@ class test
 public:
   test() {}
 
-  test(const int& a) : a_(a) {}
+  test(const std::size_t& a) : a_(a) {}
 
-  test(const int* a, int* b) : a_(*a), b_(*b) {}
-
-  test(int a_long, int c, std::string_view string_that_can_be_parsed_as_an_integer_b_that_triggers_all_arguments)
-    : a_(a_long),
-      b_(std::atoi(string_that_can_be_parsed_as_an_integer_b_that_triggers_all_arguments.data()))
-  {}
+  test(const std::size_t* a, std::size_t* b) : a_(*a), b_(*b) {}
 
   test(
-    std::string_view string_that_can_be_parsed_as_an_integer_a_that_cannot_trigger_all_arguments_on_next_line,
-    int integer_b)
-    : a_(std::atoi(
-        &string_that_can_be_parsed_as_an_integer_a_that_cannot_trigger_all_arguments_on_next_line[0])),
-      b_(integer_b)
+    std::size_t a,
+    std::size_t c,
+    std::string_view string_which_can_be_parsed_as_an_unsigned_integer_line_break)
+    : a_(a), b_(std::atoi(string_which_can_be_parsed_as_an_unsigned_integer_line_break.data()))
   {}
 
   test(std::string_view
-         string_that_can_be_parsed_as_an_integer_a_that_triggers_all_arguments_on_next_line_because_of_column_limit_a)
+         string_which_can_be_parsed_as_an_unsigned_integer_with_an_uncomfortable_line_break_after_type)
     : a_(std::atoi(
-        &string_that_can_be_parsed_as_an_integer_a_that_triggers_all_arguments_on_next_line_because_of_column_limit_a
-          [0])),
+        string_which_can_be_parsed_as_an_unsigned_integer_with_an_uncomfortable_line_break_after_type
+          .data())),
       b_(0)
-  {}
-
-  test(
-    std::string_view string_that_can_be_parsed_as_an_integer_a,
-    std::string_view string_that_can_be_parsed_as_an_integer_b)
-    : a_(std::atoi(string_that_can_be_parsed_as_an_integer_a.data())),
-      b_(std::atoi(string_that_can_be_parsed_as_an_integer_b.data()))
   {
     if (a_ < 0) {
       throw std::runtime_error(
@@ -123,8 +111,8 @@ public:
   void inline_function_implemented_separately();
 
 private:
-  int a_ = 0;                                // zero
-  int b_ = std::numeric_limits<int>::max();  // max
+  std::size_t a_ = 0;                                        // comment alignment test
+  std::size_t b_ = std::numeric_limits<std::size_t>::max();  // comment alignment test
 };
 
 inline void test::inline_function_implemented_separately()
@@ -136,17 +124,22 @@ inline void test::inline_function_implemented_separately()
 
 int main(int argc, char* argv[])
 {
-  do {
-    argc++;
-  } while ((argc < 1));
+  try {
+    do {
+      argc++;
+    } while ((argc < 1));
 
-  switch (argc) {
-  case 0:
-    break;
-  case 1: {
-    LOG_ERROR_MESSAGE("suspicious argc value");
-    break;
+    switch (argc) {
+    case 0:
+      break;
+    case 1: {
+      LOG_ERROR_MESSAGE("suspicious argc value");
+      break;
+    }
+    }
   }
+  catch (const std::exception& e) {
+    std::cerr << e.what() << std::endl;
   }
 
   return 0;
