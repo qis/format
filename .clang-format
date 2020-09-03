@@ -30,6 +30,7 @@ BraceWrapping:
   AfterStruct: true
   AfterUnion: true
   BeforeCatch: true
+  BeforeElse: false
   BeforeLambdaBody: false
   SplitEmptyFunction: false
   SplitEmptyRecord: false
