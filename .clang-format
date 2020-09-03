@@ -5,6 +5,7 @@ BasedOnStyle: LLVM
 # Indent
 ConstructorInitializerIndentWidth: 2
 ContinuationIndentWidth: 2
+IndentPPDirectives: AfterHash
 
 # Alignment
 AlignAfterOpenBracket: AlwaysBreak
@@ -13,18 +14,21 @@ AlignOperands: DontAlign
 PointerAlignment: Left
 
 # Breaks
-AllowShortLambdasOnASingleLine: Inline
+AllowShortFunctionsOnASingleLine: None
+AllowShortLambdasOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
 AlwaysBreakBeforeMultilineStrings: true
 AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: false
 BinPackParameters: false
 BraceWrapping:
   AfterClass: true
-  AfterControlStatement: MultiLine
+  AfterControlStatement: Always
   AfterFunction: true
   AfterStruct: true
   AfterUnion: true
   BeforeCatch: true
+  BeforeLambdaBody: true
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false

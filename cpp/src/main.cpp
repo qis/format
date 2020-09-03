@@ -3,16 +3,18 @@
 // == 100 ====================================================================================== //
 // == 120 ========================================================================================================== //
 
-namespace test {
-namespace detail {
+namespace test
+{
+namespace detail
+{
 
 #define ONE 1
 #define TWO_OR_THREE 2
 
 #if ONE
-#if TWO_OR_THREE
+#  if TWO_OR_THREE
 constexpr std::array<int, 4> g_data_on_one_line = { 1, 2, 3, 4 };
-#endif
+#  endif
 #endif
 
 constexpr std::array<int, 4> g_data_on_multiple_lines = {
@@ -27,8 +29,10 @@ struct empty_struct_with_a_very_long_name_to_test_inheritence_break_colon_placem
 
 }  // namespace detail
 
-namespace detail::empty_namespace {}
-namespace detail::empty_namespace_with_comment {}  // namespace detail::empty_namespace_with_comment
+namespace detail::empty_namespace
+{}
+namespace detail::empty_namespace_with_comment
+{}  // namespace detail::empty_namespace_with_comment
 
 #define LOG_ERROR_MESSAGE(message)                                                                 \
   std::cout << "error message logged from the application to be displayed to the user:" << message \
@@ -43,11 +47,14 @@ class test
     public base<detail::empty_struct_with_a_very_long_name_to_test_inheritence_break_colon_placement>
 {
 public:
-  test() {}
+  test()
+  {}
 
-  test(const std::size_t& a) : a_(a) {}
+  test(const std::size_t& a) : a_(a)
+  {}
 
-  test(const std::size_t* a, std::size_t* b) : a_(*a), b_(*b) {}
+  test(const std::size_t* a, std::size_t* b) : a_(*a), b_(*b)
+  {}
 
   test(
     std::size_t a,
@@ -63,7 +70,8 @@ public:
           .data())),
       b_(0)
   {
-    if (a_ < 0) {
+    if (a_ < 0)
+    {
       throw std::runtime_error(
         "a cannot be less, than zero"
         " "
@@ -80,7 +88,8 @@ public:
       alignment_test_for_variable_operators_with_different_lengths_a +
       alignment_test_for_variable_operators_with_different_lengths_and_comments_b;
 
-    if (a_ > 2) {
+    if (a_ > 2)
+    {
       goto end;
     }
 
@@ -88,18 +97,32 @@ public:
 
     const auto data = detail::g_data_on_one_line;
 
-    const auto it1 = std::find_if(data.begin(), data.end(), [](int i) { return true; });
+    const auto it1 = std::find_if(
+      data.begin(),
+      data.end(),
+      [](int i)
+      {
+        return true;
+      });
 
     const auto it2 = std::find_if(
-      detail::g_data_on_one_line.begin(), detail::g_data_on_one_line.end(), [](int i) {
+      detail::g_data_on_one_line.begin(),
+      detail::g_data_on_one_line.end(),
+      [](int i)
+      {
         return i > 1 ? true : false;
       });
 
     const auto it3 = std::find_if(
-      detail::g_data_on_one_line.begin(), detail::g_data_on_one_line.end(), [](int i) {
-        if (i > 1) {
+      detail::g_data_on_one_line.begin(),
+      detail::g_data_on_one_line.end(),
+      [](int i)
+      {
+        if (i > 1)
+        {
           return true;
-        } else {
+        } else
+        {
           return false;
         }
       });
@@ -107,7 +130,8 @@ public:
   end:
   }
 
-  void inline_function() {}
+  void inline_function()
+  {}
   void inline_function_implemented_separately();
 
 private:
@@ -124,23 +148,27 @@ inline void test::inline_function_implemented_separately()
 
 int main(int argc, char* argv[])
 {
-  try {
-    do {
+  try
+  {
+    do
+    {
       argc++;
     } while ((argc < 1));
 
-    switch (argc) {
+    switch (argc)
+    {
     case 0:
       break;
-    case 1: {
+    case 1:
+    {
       LOG_ERROR_MESSAGE("suspicious argc value");
       break;
     }
     }
   }
-  catch (const std::exception& e) {
+  catch (const std::exception& e)
+  {
     std::cerr << e.what() << std::endl;
   }
-
   return 0;
 }
