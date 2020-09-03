@@ -27,7 +27,6 @@ BraceWrapping:
   AfterClass: true
   AfterControlStatement: Always
   AfterFunction: true
-  AfterNamespace: false
   AfterStruct: true
   AfterUnion: true
   BeforeCatch: true
@@ -36,7 +35,6 @@ BraceWrapping:
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
 BreakBeforeBraces: Custom
-BreakStringLiterals: true
 KeepEmptyLinesAtTheStartOfBlocks: false
 MaxEmptyLinesToKeep: 2
 
