@@ -3,10 +3,8 @@
 // == 100 ====================================================================================== //
 // == 120 ========================================================================================================== //
 
-namespace test
-{
-namespace detail
-{
+namespace test {
+namespace detail {
 
 #define ONE 1
 #define TWO_OR_THREE 2
@@ -29,10 +27,8 @@ struct empty_struct_with_a_very_long_name_to_test_inheritence_break_colon_placem
 
 }  // namespace detail
 
-namespace detail::empty_namespace
-{}
-namespace detail::empty_namespace_with_comment
-{}  // namespace detail::empty_namespace_with_comment
+namespace detail::empty_namespace {}
+namespace detail::empty_namespace_with_comment {}  // namespace detail::empty_namespace_with_comment
 
 #define LOG_ERROR_MESSAGE(message)                                                                 \
   std::cout << "error message logged from the application to be displayed to the user:" << message \
@@ -72,6 +68,16 @@ public:
   {
     if (a_ < 0)
     {
+      const auto string = "one two";
+
+      const auto short_string =
+        "one two "
+        "three";
+
+      const auto long_string =
+        "very long string to force a break before "
+        "assigment and see how it looks like";
+
       throw std::runtime_error(
         "a cannot be less, than zero"
         " "
@@ -159,11 +165,12 @@ int main(int argc, char* argv[])
     {
     case 0:
       break;
-    case 1:
-    {
+    case 1: {
       LOG_ERROR_MESSAGE("suspicious argc value");
       break;
     }
+    default:
+      break;
     }
   }
   catch (const std::exception& e)

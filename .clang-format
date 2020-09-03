@@ -14,8 +14,10 @@ AlignOperands: DontAlign
 PointerAlignment: Left
 
 # Breaks
+AllowShortBlocksOnASingleLine: Never
 AllowShortFunctionsOnASingleLine: None
-AllowShortLambdasOnASingleLine: None
+AllowShortLambdasOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: false
 AllowShortIfStatementsOnASingleLine: Never
 AlwaysBreakBeforeMultilineStrings: true
 AlwaysBreakTemplateDeclarations: Yes
@@ -25,6 +27,7 @@ BraceWrapping:
   AfterClass: true
   AfterControlStatement: Always
   AfterFunction: true
+  AfterNamespace: false
   AfterStruct: true
   AfterUnion: true
   BeforeCatch: true
@@ -33,8 +36,9 @@ BraceWrapping:
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
 BreakBeforeBraces: Custom
-BreakStringLiterals: false
+BreakStringLiterals: true
 KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 2
 
 # Spaces
 Cpp11BracedListStyle: false
