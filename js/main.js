@@ -31,7 +31,17 @@ function test3(
     function(i)
     {
       return i > 0 ? true : false;
-    })
+    });
+
+  test1(
+    variable_a,
+    variable_c,
+    variable_d,
+    function(i)
+    {
+      return i > 0 ? true : false;
+    },
+  );
 }
 
 function test(param)
