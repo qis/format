@@ -64,6 +64,16 @@ public:
       b_(0)
   {
     if (a_ < 0) {
+      const auto string = "one two";
+
+      const auto short_string =
+        "one two "
+        "three";
+
+      const auto long_string =
+        "very long string to force a break before "
+        "assigment and see how it looks like";
+
       throw std::runtime_error(
         "a cannot be less, than zero"
         " "
@@ -88,7 +98,9 @@ public:
 
     const auto data = detail::g_data_on_one_line;
 
-    const auto it1 = std::find_if(data.begin(), data.end(), [](int i) { return true; });
+    const auto it1 = std::find_if(data.begin(), data.end(), [](int i) {
+      return true;
+    });
 
     const auto it2 = std::find_if(
       detail::g_data_on_one_line.begin(), detail::g_data_on_one_line.end(), [](int i) {
