@@ -10,9 +10,9 @@ namespace detail {
 #define TWO_OR_THREE 2
 
 #if ONE
-#if TWO_OR_THREE
+#  if TWO_OR_THREE
 constexpr std::array<int, 4> g_data_on_one_line = { 1, 2, 3, 4 };
-#endif
+#  endif
 #endif
 
 constexpr std::array<int, 4> g_data_on_multiple_lines = {
@@ -136,11 +136,12 @@ int main(int argc, char* argv[])
       LOG_ERROR_MESSAGE("suspicious argc value");
       break;
     }
+    default:
+      break;
     }
   }
   catch (const std::exception& e) {
     std::cerr << e.what() << std::endl;
   }
-
   return 0;
 }

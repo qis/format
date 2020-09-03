@@ -5,6 +5,7 @@ BasedOnStyle: LLVM
 # Indent
 ConstructorInitializerIndentWidth: 2
 ContinuationIndentWidth: 2
+IndentPPDirectives: AfterHash
 
 # Alignment
 AlignAfterOpenBracket: AlwaysBreak
@@ -13,7 +14,11 @@ AlignOperands: DontAlign
 PointerAlignment: Left
 
 # Breaks
+AllowShortBlocksOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Empty
 AllowShortLambdasOnASingleLine: Inline
+AllowShortLoopsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: Never
 AlwaysBreakBeforeMultilineStrings: true
 AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: false
@@ -25,12 +30,14 @@ BraceWrapping:
   AfterStruct: true
   AfterUnion: true
   BeforeCatch: true
+  BeforeLambdaBody: false
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
 BreakBeforeBraces: Custom
 BreakStringLiterals: false
 KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 2
 
 # Spaces
 Cpp11BracedListStyle: false
